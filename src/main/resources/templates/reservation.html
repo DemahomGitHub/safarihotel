@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1> Enregistrez vos coordonnées</h1>
+    <form method="POST" th:object="${reservation}">
+        <label>Votre prénom</label>
+        <input name="first_name" type="text" th:field="*{firstName}">
+        <br>
+        <label>Votre nom</label>
+        <input name="last_name" type="text" th:field="*{lastName}">
+        <br>
+        <label>Votre email</label>
+        <input name="email" type="text" th:field="*{email}">
+        <br>
+        <button type="submit">Enregistrer</button>
+    </form>
+
+</body>
+</html>
