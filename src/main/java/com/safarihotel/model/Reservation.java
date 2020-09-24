@@ -1,8 +1,6 @@
 package com.safarihotel.model;
 
 import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
 public class Reservation {

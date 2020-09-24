@@ -32,7 +32,7 @@ public class ReservationController {
         Reservation results = this.reservationService.create(reservation);
         log.info("Reservation created");
 
-        return "confirmation";
+        return "redirect:/confirmation";
     }
 
 }
