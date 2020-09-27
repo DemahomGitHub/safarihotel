@@ -9,5 +9,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/confirmation").setViewName("confirmation");
+        registry.addViewController("/page-not-found").setViewName("page-not-found");
     }
 }

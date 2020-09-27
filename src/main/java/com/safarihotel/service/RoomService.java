@@ -28,4 +28,12 @@ public class RoomService {
     public List<Room> findAll() {
         return this.rooms;
     }
+
+    public Room findOne(Long id) {
+        for (Room room : rooms) {
+            if (room.getId().equals(id))
+                return room;
+        }
+        return null;
+    }
 }

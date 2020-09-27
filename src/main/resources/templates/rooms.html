@@ -4,7 +4,9 @@
 <body>
     <div th:replace="fragments/header::header(page='rooms')"></div>
     <div class="container">
+        <br>
         <h1 style="text-align: center;">Toutes nos chambres</h1>
+        <hr>
         <div th:replace="fragments/rooms-list::rooms-list(list=${rooms})">ROOMS LIST</div>
     </div>
     <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
