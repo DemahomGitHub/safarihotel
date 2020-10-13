@@ -5,9 +5,9 @@
     <div th:fragment="rooms-list(list)" class="row">
         <div class="col-12 col-md-6 col-lg-4" th:each="room : ${list}" style="margin-bottom: 10px;">
             <div class="card">
-                <img th:src="@{/images/safarihotel.jpeg}" class="card-img-top" alt="Img illusration">
+                <img th:src="@{/images/{path}(path=${room.images[0].filePath})}" class="card-img-top" alt="Img illusration">
                 <div class="card-body" style="text-align: left;">
-                    <h6 th:text="${room.imageTitle}">TITLE</h6>
+                    <h6 th:text="${room.shortDescription}">TITLE</h6>
                     <a th:href="@{/rooms/{id}(id=${room.id})}">Réserver</a>
                 </div>
             </div>

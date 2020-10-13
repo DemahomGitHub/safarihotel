@@ -22,7 +22,7 @@ public class HomeController {
 
     @GetMapping("/")
     String getHomePage(Model model) {
-        List<Room> rooms = roomService.findAll();
+        List<Room> rooms = (List)roomService.findAll();
 
         model.addAttribute("rooms", rooms.stream().limit(3).collect(Collectors.toList()));
 

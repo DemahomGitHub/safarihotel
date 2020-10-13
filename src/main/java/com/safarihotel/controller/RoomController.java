@@ -29,10 +29,8 @@ public class RoomController {
     @GetMapping
     public String findAll(Model model) {
         log.info("Finding rooms");
-
-        List<Room> rooms = roomService.findAll();
+        List<Room> rooms = (List)roomService.findAll();
         model.addAttribute("rooms", rooms);
-
         log.info(rooms.size() + " rooms founds");
         return "rooms";
     }
@@ -40,7 +38,7 @@ public class RoomController {
     @GetMapping("/{id}")
     public String findOne(@PathVariable Long id, Model model) {
         log.info("Finding room");
-        Optional<Room> room = Optional.ofNullable(roomService.findOne(id));
+        Optional<Room> room = Optional.ofNullable(roomService.findById(id));
 
         if (room.isPresent()) {
             log.info("Room found");
