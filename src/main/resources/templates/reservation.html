@@ -5,6 +5,14 @@
     <div th:replace="fragments/header::header(page='reservation')"></div>
     <div class="container">
         <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Votre choix</h5>
+                <img th:src="@{/images/{path}(path=${room.images[0].filePath})}">
+                <p class="card-text"></p>
+            </div>
+        </div>
+        <br>
         <h1 style="text-align: center;"> Enregistrez vos coordonnées</h1>
         <hr>
         <form method="POST" th:object="${reservation}">
@@ -44,9 +52,46 @@
                 </span>
             </div>
 
+            <div class="form-group">
+                <label for="gsm">Numéro de téléphone</label>
+                <input id="gsm" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="gsm" type="text" th:field="*{phoneNumber}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('phoneNumber')}"
+                      th:errors="*{phoneNumber}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="checkInDt">Date d'entrée</label>
+                <input id="checkInDt" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="checkInDt" type="date" th:field="*{checkInDt}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('checkInDt')}"
+                      th:errors="*{checkInDt}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="checkOutDt">Date de sortie</label>
+                <input id="checkOutDt" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="checkOutDt" type="date" th:field="*{checkOutDt}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('checkOutDt')}"
+                      th:errors="*{checkOutDt}">
+                    ERROR
+                </span>
+            </div>
             <button type="submit"class="btn btn-block btn-dark">Enregistrer</button>
         </form>
     </div>
+    <br>
+    <br>
     <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
 </body>
 </html>

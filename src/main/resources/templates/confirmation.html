@@ -5,10 +5,10 @@
     <div th:replace="fragments/header::header(page='confirmation')"></div>
 
     <div class="container">
-        <h1 style="text-align: center;">Remerciements !</h1>
+        <h1 style="text-align: center;">Merci <span th:text="${reservation.firstName}">NOM</span> pour votre confiance!</h1>
         <hr>
         <div class="alert alert-success" role="alert">
-            <h2>L'équipe de Safari Hotel vous remercie de votre confiance</h2>
+            <h2>Votre réservation a été créée avec succès!</h2>
             <h3>Nous espérons vous voir bientôt</h3>
         </div>
     </div>

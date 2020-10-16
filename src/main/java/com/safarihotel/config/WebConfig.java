@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/confirmation").setViewName("confirmation");
-        registry.addViewController("/page-not-found").setViewName("page-not-found");
+        registry.addViewController("/error").setViewName("page-not-found");
     }
 }
