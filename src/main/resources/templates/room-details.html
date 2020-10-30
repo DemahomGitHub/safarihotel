@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+    <div th:replace="fragments/header::header(page='rooms')"></div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-9">
+                <h1 th:text="${room.shortDescription}">TITLE</h1>
+            </div>
+            <div class="col">
+                <a type="button" class="btn btn-block btn-success" th:href="@{/reservations}"> Réserver </a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <img th:src="@{/images/{path}(path=${room.images[0].filePath})}" class="img-thumbnail" alt="Image">
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>

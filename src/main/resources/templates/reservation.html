@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+    <div th:replace="fragments/header::header(page='reservation')"></div>
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Votre choix</h5>
+                <img th:src="@{/images/{path}(path=${room.images[0].filePath})}">
+                <p class="card-text"></p>
+            </div>
+        </div>
+        <br>
+        <h1 style="text-align: center;"> Enregistrez vos coordonnées</h1>
+        <hr>
+        <form method="POST" th:object="${reservation}">
+            <div class="form-group">
+                <label for="firstName">Prénom</label>
+                <input name="first_name" class="form-control"
+                       placeholder="Entrez votre prénom"
+                       id="firstName" type="text" th:field="*{firstName}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('firstName')}"
+                      th:errors="*{firstName}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Nom</label>
+                <input id="lastName" class="form-control"
+                       placeholder="Entrez votre nom"
+                       name="last_name" type="text" th:field="*{lastName}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('lastName')}"
+                      th:errors="*{lastName}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" class="form-control"
+                       placeholder="my-email@gmail.com"
+                       name="email" type="text" th:field="*{email}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('email')}"
+                      th:errors="*{email}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="gsm">Numéro de téléphone</label>
+                <input id="gsm" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="gsm" type="text" th:field="*{phoneNumber}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('phoneNumber')}"
+                      th:errors="*{phoneNumber}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="checkInDt">Date d'entrée</label>
+                <input id="checkInDt" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="checkInDt" type="date" th:field="*{checkInDt}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('checkInDt')}"
+                      th:errors="*{checkInDt}">
+                    ERROR
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="checkOutDt">Date de sortie</label>
+                <input id="checkOutDt" class="form-control"
+                       placeholder="+32 499 10 18 33"
+                       name="checkOutDt" type="date" th:field="*{checkOutDt}">
+                <span class="alert alert-danger form-control" role="alert"
+                      th:if="${#fields.hasErrors('checkOutDt')}"
+                      th:errors="*{checkOutDt}">
+                    ERROR
+                </span>
+            </div>
+            <button type="submit"class="btn btn-block btn-dark">Enregistrer</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>

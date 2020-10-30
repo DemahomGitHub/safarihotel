@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+    <div th:replace="fragments/header::header(page='confirmation')"></div>
+
+    <div class="container">
+        <h1 style="text-align: center;">Merci <span th:text="${reservation.firstName}">NOM</span> pour votre confiance!</h1>
+        <hr>
+        <div class="alert alert-success" role="alert">
+            <h2>Votre réservation a été créée avec succès!</h2>
+            <h3>Nous espérons vous voir bientôt</h3>
+        </div>
+    </div>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>

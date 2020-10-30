@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+    <div th:fragment="rooms-list(list)" class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="room : ${list}" style="margin-bottom: 10px;">
+            <div class="card">
+                <img th:src="@{/images/{path}(path=${room.images[0].filePath})}" class="card-img-top" alt="Img illusration">
+                <div class="card-body" style="text-align: left;">
+                    <h6 th:text="${room.shortDescription}">TITLE</h6>
+                    <a th:href="@{/rooms/{id}(id=${room.id})}">Réserver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>

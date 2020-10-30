@@ -1,10 +1,9 @@
 package com.safarihotel.model;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class Reservation {
@@ -23,4 +22,9 @@ public class Reservation {
     @NotEmpty(message = "Email obligatoire")
     @Email(message = "Email invalide")
     private String email;
+
+    private String phoneNumber;
+    private Date checkInDt;
+    private Date checkOutDt;
+    private Room reservedRoom;
 }
