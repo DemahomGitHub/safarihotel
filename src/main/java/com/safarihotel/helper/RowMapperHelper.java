@@ -2,6 +2,7 @@ package com.safarihotel.helper;
 
 import com.safarihotel.model.Room;
 import com.safarihotel.model.RoomImage;
+import com.safarihotel.model.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -29,6 +30,18 @@ public class RowMapperHelper {
             roomImage.setFilePath(rs.getString("file_path"));
             roomImage.setRoomId(rs.getLong("room_id"));
             return roomImage;
+        }
+    };
+
+    public static RowMapper<User> mapRowToUser = new RowMapper<User>() {
+        @Override
+        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new User(
+                rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("full_name"),
+                rs.getBoolean("enabled")
+            );
         }
     };
 }

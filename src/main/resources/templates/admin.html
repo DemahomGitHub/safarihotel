@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+    <div th:replace="fragments/header::header(page='')"></div>
+    <div class="container">
+        <form method="POST" th:action="@{/logout}">
+            <button type="submit"class="btn btn-block btn-danger">Déconnexion</button>
+        </form>
+        <hr>
+        <div class="alert alert-success" role="alert">
+            <h2>Bienvenu dans la page console d'administration!</h2>
+        </div>
+    </div>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>

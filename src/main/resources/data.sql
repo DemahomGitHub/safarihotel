@@ -1,6 +1,7 @@
 delete from RoomImage;
 delete from Reservation;
 delete from Room;
+delete from Users;
 
 insert into Room(id, room_number, short_description, long_description, price_per_night, created_at)
 values ( 1, 101, 'Logement pour les amoureux', 'Logement très aéré avec ouverture la vallée...', 49, '2020-10-29 14:56:59' );
@@ -83,3 +84,14 @@ insert into RoomImage (id, file_path, room_id)
 values (29, 'IMG_ROOM_006/IMG_004.jpg', 6);
 insert into RoomImage (id, file_path, room_id)
 values (30, 'IMG_ROOM_006/IMG_005.jpg', 6);
+
+insert into Users (username, password, full_name, enabled)
+values ('wang', '$2y$10$RecpQawvdfW6xgMOJjHMWeUa8iSto4bNdJKcM2Jk1LuIARbNZDUJ.', 'Wangari Matai', true);
+insert into Users (username, password, full_name, enabled)
+values ('okel', '$2y$10$xmmViU82UL2h5SeXa/i6lunIsvGeHvCe8X5B7ba2v9Wl.r4KVJhUy', 'Okelo Matao', true);
+
+insert into Authorities (username, authority)
+values ('wang', 'ROLE_ADMIN');
+
+insert into Authorities (username, authority)
+values ('okel', 'ROLE_ADMIN');

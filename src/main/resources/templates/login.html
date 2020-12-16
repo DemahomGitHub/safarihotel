@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments/meta-infos::meta-infos"></head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Safari Hotel</a>
+    </div>
+</nav>
+    <div class="container">
+        <br>
+        <h1>Login Page</h1>
+        <hr>
+        <form method="POST" th:action="@{/login}">
+            <div class="form-group">
+                <label for="username">User name</label>
+                <input name="username" class="form-control"
+                       placeholder="Nom d'utilisateur"
+                       id="username" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Password</label>
+                <input name="password" class="form-control"
+                       placeholder="Nom d'utilisateur"
+                       id="password" type="password">
+            </div>
+            <button type="submit"class="btn btn-block btn-success">Connexion</button>
+            <div th:if="${param.error != null}">
+                <div id="error" class="alert alert-danger" role="alert">
+                    Username ou mot de passe incorrect
+                </div>
+            </div>
+        </form>
+    </div>
+    <div th:replace="fragments/meta-infos::bootstrapscripts"></div>
+</body>
+</html>
